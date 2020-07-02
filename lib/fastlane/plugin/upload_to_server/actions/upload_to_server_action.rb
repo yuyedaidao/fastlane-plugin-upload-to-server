@@ -43,8 +43,9 @@ module Fastlane
           multipart_payload[:file] = File.new(custom_file, 'rb')
         end
 
-      UI.message multipart_payload
-      upload_file(params, multipart_payload)
+        UI.message multipart_payload
+        result = upload_file(params, multipart_payload)
+        UI.message(result)
       end
 
       def self.upload_file(params, multipart_payload)
